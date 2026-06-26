@@ -1,0 +1,2 @@
+<?php get_header(); ?>
+<main class="content"><?php grs_breadcrumbs(); while (have_posts()) : the_post(); ?><article><h1><?php echo esc_html(grs_meta('_grs_h1') ?: get_the_title()); ?></h1><?php the_post_thumbnail('grs-hero'); ?><div class="entry"><?php the_content(); ?></div><?php if (grs_meta('_grs_seo_text')) : ?><section class="seo-text"><?php echo wp_kses_post(grs_meta('_grs_seo_text')); ?></section><?php endif; ?><section id="lead"><h2>Оставить заявку</h2><?php echo grs_lead_form(get_post_type()); ?></section></article><?php endwhile; ?></main><?php get_footer(); ?>
